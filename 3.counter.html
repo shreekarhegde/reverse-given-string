@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+
+        </title>
+        <script src="https://unpkg.com/react@16.0.0/umd/react.production.min.js"></script>
+        <script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.production.min.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+
+    </head>
+    <body>
+        <div id="root">
+
+        </div>
+        <script type="text/babel">
+            let rootHandle = document.getElementById('root');
+
+            class Counter extends React.Component {
+                constructor(props) {
+                    super(props);
+                        this.state = {
+                            count: 0
+                    }
+                }
+
+                    countUp() {
+                        this.setState(prevState => ({
+                            count: prevState.count + 1
+                        }))     
+                    }
+
+                    countDown(){
+                        this.setState(prevState => ({
+                            count: prevState.count - 1
+                        }))
+                    }
+
+                    render (){
+                        return(
+                            <div>
+                                <h2> Count - { this.state.count } </h2>
+                                <button onClick = { this.countUp.bind(this)}> Up </button>
+                                <button onClick = { this.countDown.bind(this)}> Down </button>
+                            </div>
+                        )
+                    }
+                }
+
+            ReactDOM.render(<Counter />, rootHandle);
+        </script>
+    </body>
+</html>

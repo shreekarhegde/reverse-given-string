@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+
+        </title>
+        <script src="https://unpkg.com/react@16.0.0/umd/react.production.min.js"></script>
+        <script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.production.min.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+
+    </head>
+    <body>
+        <div id="root">
+
+        </div>
+        <script type="text/babel">
+            let rootHandle = document.getElementById('root');
+
+            let count = 0;
+            function handleCountUp() {
+                count++;
+                render2DOM();
+            }
+
+            function handleCountDown() {
+                count--;
+                render2DOM();
+            }
+
+            function render2DOM() {
+                const ele = (
+                    <div>
+                        <ul>
+                            <li> Apple </li>
+                            <li> Mango </li>
+                        </ul>
+                        <h2> Count - {count} </h2>
+                        <button onClick={handleCountUp}> Count up </button>
+                        <button onClick={handleCountDown}> Count Down </button>
+                    </div>
+
+                )
+                ReactDOM.render(ele, rootHandle);
+            }
+            render2DOM();
+
+        </script>
+    </body>
+</html>

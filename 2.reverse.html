@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+
+        </title>
+        <script src="https://unpkg.com/react@16.0.0/umd/react.production.min.js"></script>
+        <script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.production.min.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+
+    </head>
+    <body>
+        <div id="root">
+
+        </div>
+        <script type="text/babel">
+            let rootHandle = document.getElementById('root');
+            let string = 'world';
+            let stringReverse = '';
+            function reverse() {
+                 stringReverse = string.split('').reverse().join('');
+                render2DOM();
+            }
+
+            function render2DOM(){
+                const ele = (
+                    <div>
+                    <h2> word - { string } </h2>
+                    <h3> reversed word - { stringReverse } </h3>
+                    <button onClick =  {reverse}> click to reverse </button>
+                    </div>
+                )
+                ReactDOM.render(ele, rootHandle);
+            }
+
+            render2DOM();
+        </script>
+    </body>
+</html>

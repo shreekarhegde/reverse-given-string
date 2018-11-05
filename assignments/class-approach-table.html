@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+
+        </title>
+        <script src="https://unpkg.com/react@16.0.0/umd/react.production.min.js"></script>
+        <script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.production.min.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+
+    </head>
+    <body>
+        <div id="root">
+
+        </div>
+        <script type="text/babel">
+            let rootHandle = document.getElementById('root');
+            const MOUNTAINS = [
+                    {name: 'Kilimanjaro', height: 5895, place: 'Tanzania'},
+                    {name: 'Everest', height: 8848, place: 'Nepal'},
+                    {name: 'Mount Fuji', height: 3776, place: 'Japan'},
+                    {name: 'Mont Blanc', height: 4808, place: 'Italy/France'}
+];
+
+                    function buildTable(mountain, index){
+                        return (
+                        <tr key={index}>
+                            <td> {mountain.name} </td>
+                            <td> {mountain.height} </td>
+                            <td> {mountain.place} </td>
+                        </tr>   
+                    )
+                    }
+
+                    function App(){
+                        return (
+                            <div> 
+                                <buildTable mountain={mapMountain()} />
+                            </div>
+                        )
+                    }
+
+                    function mapMountain(){
+                        MOUNTAINS.map((mountain, index) => buildTable(mountain, index))
+                    }
+
+                    ReactDOM.render(
+                        <App />, document.getElementById('root')
+                    );
+        </script>
+    </body>
+</html>
